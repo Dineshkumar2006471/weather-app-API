@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌦️ Simple Weather App</h1>
+    <form action="/" method="POST">
+      <input type="text" name="city" placeholder="Enter city name" required>
+      <button type="submit">Check Weather</button>
+    </form>
+
+    <% if (weather) { %>
+      <div class="weather">
+        <h2>Weather in <%= weather.city %></h2>
+        <p><strong>Temperature:</strong> <%= weather.temp %>°C</p>
+        <p><strong>Description:</strong> <%= weather.description %></p>
+        <img src="<%= weather.icon %>" alt="Weather Icon" class="weather-icon" />
+      </div>
+    <% } %>
+
+    <% if (error) { %>
+      <div class="error"><%= error %></div>
+    <% } %>
+  </div>
+</body>
+</html>
